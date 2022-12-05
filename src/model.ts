@@ -4,6 +4,12 @@ export interface FeatureSignature {
    * Example: countBy
    */
   name: string;
+
+  /**
+   * The feature alias name (function/type/interface...).
+   * Example: countingBy
+   */
+  aliasName: string;
   /**
    * The npm package name.
    * Example: lodash
@@ -15,6 +21,21 @@ export interface FeatureSignature {
    */
   signature: string;
 }
+
+export interface FeatureRef {
+  /**
+   * The feature (function/type/interface...).
+   * Example: countBy
+   */
+  name: string;
+
+  /**
+   * The feature alias name (function/type/interface...).
+   * Example: countingBy
+   */
+  aliasName: string;
+}
+
 export interface Dependency {
   /**
    * The npm package name.
@@ -25,7 +46,7 @@ export interface Dependency {
    * The feature (function/type/interface...).
    * Example: countBy
    */
-  features: string[];
+  features: FeatureRef[];
   /**
    * False for Typescript projects
    * True if you need to call a separate yarn add @types/...
